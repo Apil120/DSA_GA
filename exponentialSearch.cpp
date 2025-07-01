@@ -28,14 +28,26 @@ int exponentialSearch(const vector<int>& arr, int target) {
 }
 
 int main() {
-    vector<int> arr = {2, 3, 4, 10, 40, 80, 160};
-    int target = 10;
-    int result = exponentialSearch(arr, target);
+    int n;
+    cout << "Enter the size of the array: ";
+    cin >> n;
 
+    vector<int> arr(n);
+    cout << "Enter " << n << " elements (unsorted): ";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    int target;
+    cout << "\nEnter the target element to search: ";
+    cin >> target;
+
+    int result = exponentialSearch(arr,target);
     if (result != -1)
-        cout << "Element found at index: " << result << endl;
+    cout << "Element found at index: " << result ;
     else
-        cout << "Element not found" << endl;
+    cout << "Element not found";
+
+
 
     return 0;
 }
