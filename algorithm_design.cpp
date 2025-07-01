@@ -59,7 +59,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
-    cout << endl;
+
 
     int target;
     cout << "Enter the target element to search: ";
@@ -67,9 +67,9 @@ int main() {
 
     int result = binarySearch(arr, target);
     if (result != -1) {
-        cout << "Element found at index " << result << endl;
+        cout << "Element found at index " << result;
     } else {
-        cout << "Element not found" << endl;
+        cout << "Element not found";
     }
 
     return 0;
