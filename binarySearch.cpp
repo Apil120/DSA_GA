@@ -62,7 +62,7 @@ int main() {
 
 
     int target;
-    cout << "Enter the target element to search: ";
+    cout << "\nEnter the target element to search: ";
     cin >> target;
 
     int result = binarySearch(arr, target);
