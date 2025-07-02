@@ -2,6 +2,15 @@
 
 This repository contains C++ implementations of classic sorting and searching algorithms, designed for academic learning and demonstration purposes. Each algorithm is implemented in a separate file, with interactive console input for user-friendly testing.
 
+## Cloning the Repository
+
+To get a local copy of this project, run:
+
+```sh
+git clone https://github.com/Apil120/DSA_GA.git
+cd DSA_GA
+```
+
 ## Contents
 
 - `binarySearch.cpp`  
