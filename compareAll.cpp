@@ -1,9 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <chrono>
-#include <algorithm>
 #include <cstdlib>
-#include <iomanip>
 
 using namespace std;
 using namespace chrono;
