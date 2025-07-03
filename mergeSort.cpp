@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+//Helper function, merges the smaller array chunks back to a big array
 void merge(vector<int>& arr, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
@@ -28,6 +29,7 @@ void merge(vector<int>& arr, int left, int mid, int right) {
         arr[k++] = R[j++];
 }
 
+//Merge sort
 void mergeSort(vector<int>& arr, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;

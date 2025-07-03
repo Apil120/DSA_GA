@@ -27,7 +27,7 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-//Helper function for quick sort
+//Binary Search
 int binarySearch(vector<int>& arr, int left, int right, int target) {
     while (left <= right) {
         int mid = left + (right - left) / 2;
@@ -41,6 +41,7 @@ int binarySearch(vector<int>& arr, int left, int right, int target) {
     return -1;
 }
 
+//Exponential Search
 int exponentialSearch(vector<int>& arr, int target) {
     if (arr[0] == target)
         return 0;
