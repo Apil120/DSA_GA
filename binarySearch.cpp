@@ -26,7 +26,7 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-int binarySearch(const vector<int>& arr, int target) {
+int binarySearch(vector<int>& arr, int target) {
     int left = 0, right = arr.size() - 1;
 
     while (left <= right) {

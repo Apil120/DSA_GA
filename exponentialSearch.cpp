@@ -2,6 +2,7 @@
 #include <vector>
 using namespace std;
 
+//Helper function for quick sort
 int helper(vector<int>& arr, int low, int high) {
     int pivot = arr[high]; 
     int i = low - 1;
@@ -17,6 +18,7 @@ int helper(vector<int>& arr, int low, int high) {
     return i + 1;
 }
 
+//Quick sort
 void quickSort(vector<int>& arr, int low, int high) {
     if (low < high) {
         int pivotIndex = helper(arr, low, high);
@@ -25,7 +27,8 @@ void quickSort(vector<int>& arr, int low, int high) {
     }
 }
 
-int binarySearch(const vector<int>& arr, int left, int right, int target) {
+//Helper function for quick sort
+int binarySearch(vector<int>& arr, int left, int right, int target) {
     while (left <= right) {
         int mid = left + (right - left) / 2;
         if (arr[mid] == target)
@@ -66,7 +69,7 @@ int main() {
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
     }
-    
+
     int target;
     cout << "\nEnter the target element to search: ";
     cin >> target;
