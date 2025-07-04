@@ -120,7 +120,7 @@ void testForSize(int size) {
 
 int main() {
     srand(time(0));
-    vector<int> sizes = {100, 1000, 5000, 10000};
+    vector<int> sizes = {100, 1000, 5000, 10000,15000};
 
     cout << "---------------------------------------------------------------\n";
     for (int size : sizes) {
