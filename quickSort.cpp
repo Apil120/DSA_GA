@@ -3,7 +3,7 @@
 
 using namespace std;
 
-//Helper function for quick sort
+//Helper
 int helper(vector<int>& arr, int low, int high) {
     int pivot = arr[high]; 
     int i = low - 1;
@@ -11,15 +11,14 @@ int helper(vector<int>& arr, int low, int high) {
     for (int j = low; j < high; j++) {
         if (arr[j] < pivot) {
             i++;
-            swap(arr[i], arr[j]);
+            arr[i] = arr[j];
         }
     }
 
-    swap(arr[i + 1], arr[high]);
+    arr[i+1] = arr[high];
     return i + 1;
 }
 
-//Quick Sort
 void quickSort(vector<int>& arr, int low, int high) {
     if (low < high) {
         int pivotIndex = helper(arr, low, high);
@@ -27,6 +26,7 @@ void quickSort(vector<int>& arr, int low, int high) {
         quickSort(arr, pivotIndex + 1, high);
     }
 }
+
 
 int main() {
     int n;

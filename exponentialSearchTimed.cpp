@@ -4,16 +4,19 @@
 using namespace std;
 using namespace chrono;
 
+//Helper
 int helper(vector<int>& arr, int low, int high) {
     int pivot = arr[high]; 
     int i = low - 1;
+
     for (int j = low; j < high; j++) {
         if (arr[j] < pivot) {
             i++;
-            swap(arr[i], arr[j]);
+            arr[i] = arr[j];
         }
     }
-    swap(arr[i + 1], arr[high]);
+
+    arr[i+1] = arr[high];
     return i + 1;
 }
 
@@ -24,6 +27,7 @@ void quickSort(vector<int>& arr, int low, int high) {
         quickSort(arr, pivotIndex + 1, high);
     }
 }
+
 
 int binarySearch(vector<int>& arr, int left, int right, int target) {
     while (left <= right) {

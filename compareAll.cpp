@@ -7,42 +7,67 @@ using namespace std;
 using namespace chrono;
 
 // ---------- Merge Sort ----------
-void merge(vector<int>& arr, int l, int m, int r) {
-    vector<int> left(arr.begin() + l, arr.begin() + m + 1);
-    vector<int> right(arr.begin() + m + 1, arr.begin() + r + 1);
-    int i = 0, j = 0, k = l;
-    while (i < left.size() && j < right.size())
-        arr[k++] = (left[i] <= right[j]) ? left[i++] : right[j++];
-    while (i < left.size()) arr[k++] = left[i++];
-    while (j < right.size()) arr[k++] = right[j++];
+void merge(vector<int>& arr, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    vector<int> L(n1), R(n2);
+
+    for (int i = 0; i < n1; ++i)
+        L[i] = arr[left + i];
+    for (int i = 0; i < n2; ++i)
+        R[i] = arr[mid + 1 + i];
+
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (L[i] <= R[j])
+            arr[k++] = L[i++];
+        else
+            arr[k++] = R[j++];
+    }
+
+    while (i < n1)
+        arr[k++] = L[i++];
+
+    while (j < n2)
+        arr[k++] = R[j++];
 }
 
-void mergeSort(vector<int>& arr, int l, int r) {
-    if (l >= r) return;
-    int m = l + (r - l) / 2;
-    mergeSort(arr, l, m);
-    mergeSort(arr, m + 1, r);
-    merge(arr, l, m, r);
+//Merge sort
+void mergeSort(vector<int>& arr, int left, int right) {
+    if (left < right) {
+        int mid = left + (right - left) / 2;
+
+        mergeSort(arr, left, mid);
+        mergeSort(arr, mid + 1, right);
+
+        merge(arr, left, mid, right);
+    }
 }
 
 // ---------- Quick Sort ----------
-int partition(vector<int>& arr, int low, int high) {
-    int pivot = arr[high], i = low - 1;
-    for (int j = low; j < high; j++)
-        if (arr[j] < pivot)
-            swap(arr[++i], arr[j]);
-    swap(arr[i + 1], arr[high]);
+int helper(vector<int>& arr, int low, int high) {
+    int pivot = arr[high]; 
+    int i = low - 1;
+
+    for (int j = low; j < high; j++) {
+        if (arr[j] < pivot) {
+            i++;
+            arr[i] = arr[j];
+        }
+    }
+
+    arr[i+1] = arr[high];
     return i + 1;
 }
 
 void quickSort(vector<int>& arr, int low, int high) {
     if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
+        int pivotIndex = helper(arr, low, high);
+        quickSort(arr, low, pivotIndex - 1);
+        quickSort(arr, pivotIndex + 1, high);
     }
 }
-
 // ---------- Binary Search ----------
 int binarySearch(const vector<int>& arr, int target) {
     int l = 0, r = arr.size() - 1;
